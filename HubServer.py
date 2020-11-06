@@ -294,7 +294,8 @@ class MyThread(QThread):
                               if(Hubcategory == 'SBC'):
                                   GUI_sock.send(recv_data)
                                   ExtractJSONData(recv_data)
-                                  self.change_value.emit('#####  JSON String is  ######\n' + str(recv_data))
+                                  #self.change_value.emit('#####  JSON String is  ######\n' + str(recv_data))
+                                  self.change_value.emit('#####  EVENT Received  ######\n')
                                   #self.change_value.emit(recv_data)
                               elif(Hubcategory == 'FPGA'):
                                 if (recv_data[0] == 0xfa):
@@ -302,7 +303,8 @@ class MyThread(QThread):
                                   if EventStatus == True :
                                      # GUI_sock.send(recv_data)
                                      GUI_sock.send(bytes(Event,encoding="utf-8"))
-                                     self.change_value.emit('#####  JSON String is  ######\n'+ Event)
+                                     #self.change_value.emit('#####  JSON String is  ######\n'+ Event)
+                                     self.change_value.emit('#####  EVENT Received  ######\n')
                                   #else :
                                   #    self.change_value.emit('#####   Invalid Event  ######\n')
                           else:
@@ -347,7 +349,7 @@ class MyThread(QThread):
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
-        title = "Multi-Vibration Sensor Server- Version B0.3"
+        title = "Multi-Vibration Sensor Server- Version B0.4"
         left = 500
         top = 300
         width = 800
