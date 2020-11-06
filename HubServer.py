@@ -171,7 +171,7 @@ def Extract_Engg_Values(data):
             Event["events"]["type"] = "MAGNETIC"
             myAudioThread(Event["events"]["type"] + 'event detected').start()
 
-        elif ((VibFreq > 4) and (VibMag > 3000)) or (VibMag > 5000):
+        elif ((VibFreq > 4) and (VibMag > 15000)) or (VibMag > 25000):
             Event["events"]["type"] = "VIBRATION"
             Event["events"]["vibrationcount"] = str(VibFreq)
             Event["events"]["temperature"] = '30'#str(Temp)
@@ -347,7 +347,7 @@ class MyThread(QThread):
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
-        title = "Multi-Vibration Sensor Server- Version B0.2"
+        title = "Multi-Vibration Sensor Server- Version B0.3"
         left = 500
         top = 300
         width = 800
